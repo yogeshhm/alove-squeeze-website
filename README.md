@@ -2,6 +2,8 @@
 
 A responsive, scroll-animated product landing page built around the **exact uploaded ALOVE SQUEEZE Guava bottle image**.
 
+🌐 **Live Demo:** [https://yogeshhm.github.io/alove-squeeze-website/](https://yogeshhm.github.io/alove-squeeze-website/)
+
 ## Run locally
 This is a static website. You can open `index.html` directly, or run a local server:
 
