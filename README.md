@@ -1,31 +1,48 @@
-# ALOVE SQUEEZE — product landing page
+# ALOVE SQUEEZE — Product Landing Page
 
 A responsive, scroll-animated product landing page showcasing the 3-flavour lineup: **Guava**, **Kiwi**, and **Orange**.
 
-🌐 **Live Demo:** [https://yogeshhm.github.io/alove-squeeze-website/](https://yogeshhm.github.io/alove-squeeze-website/)
+## 🌐 Live Demos on GitHub Pages
+- **Version 1.1 (Trio Showcase):** [https://yogeshhm.github.io/alove-squeeze-website/](https://yogeshhm.github.io/alove-squeeze-website/)
+- **Version 1.2 (Cinematic Video Hero Makeover):** [https://yogeshhm.github.io/alove-squeeze-website/v1.2.html](https://yogeshhm.github.io/alove-squeeze-website/v1.2.html)
 
-## Features
-- **Hero Trio Showcase**: Interactive 3D cursor tilt and scroll fan-out motion for the Guava, Kiwi, and Orange bottles.
-- **Stacked Flavour Cards**: Fullscreen sticky cards for each flavour with custom color themes, brand typography, and feature breakdowns.
-- **Orange Floating Bottle Video**: Embedded video showcase for the orange flavor with ambient glow and badge overlay.
-- **Original Guava Stage**: Dedicated spotlight on the original guava squeeze with dual callouts.
-- **Responsive & Accessible**: Seamless adaptation on mobile devices (`< 760px` and `< 900px`) and full support for `prefers-reduced-motion`.
+*(Both versions feature an interactive version switcher in the header to toggle between designs with a single click.)*
 
-## Run locally
-This is a static website. You can open `index.html` directly, or run a local server:
+---
+
+## ✨ Features
+
+### Version 1.1 (Trio Showcase)
+- **Interactive Trio Hero**: Interactive 3D cursor tilt on Kiwi, Guava, and Orange bottles with scroll-tied fan-out motion.
+- **Stacked Flavour Deck**: Full-screen sticky cards for Guava, Kiwi, and Orange with custom brand palettes and ingredient highlights.
+- **Orange Spotlight**: Embedded floating bottle video showcase with glowing ambient stage.
+- **Scroll Progress & Micro-Interactions**: Ambient star floating keyframes, magnetic hover states on buttons, and smooth scroll progress bar.
+
+### Version 1.2 (Cinematic Video Hero Makeover)
+- **Hero Video Centerpiece**: The floating orange bottle video is promoted to the hero stage within a curved 3D glass frame with subtle rotation and inner glow.
+- **3D Mouse Parallax & Scroll Offload**: Pointer tracking smoothly tilts the video frame in 3D perspective, with scroll-linked scaling and tracking into the content below.
+- **WCAG 2.2.2 Accessible Video Controls**: Integrated play/pause button to ensure accessibility compliance for auto-running video motion.
+- **Floating Glassmorphic Badges**: Backdrop-blurred floating tags highlighting cold-pressed purity and citrus personality.
+- **Quick-Jump Flavour Dock**: Micro-selector dock right in the hero allowing visitors to jump directly into Guava, Kiwi, or Orange.
+
+---
+
+## Run Locally
+This is a static website. You can open `index.html` or `v1.2.html` directly, or run a local server:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then visit http://localhost:8000
+Then visit:
+- http://localhost:8000 (v1.1)
+- http://localhost:8000/v1.2.html (v1.2)
+
+---
 
 ## Assets
-- `assets/alove-guava-bottle.png` — Guava juice bottle asset.
-- `assets/alove-kiwi-bottle.png` — Kiwi juice bottle asset.
-- `assets/alove-orange-bottle.png` — Orange juice bottle asset.
-- `assets/alove-orange-floating.mp4` — Floating orange bottle video.
+- `assets/alove-guava-bottle.png` — Transparent Guava bottle.
+- `assets/alove-kiwi-bottle.png` — Transparent Kiwi bottle.
+- `assets/alove-orange-bottle.png` — Transparent Orange bottle.
+- `assets/alove-orange-floating.mp4` — Floating bottle video.
 - `assets/original-product-reference.png` — Original reference packaging.
-
-## Motion
-GSAP and ScrollTrigger are loaded from CDN for scroll-linked motion and 3D pointer tracking. The page remains fully readable if CDN services do not load or if reduced motion is preferred.

@@ -60,3 +60,93 @@
  .orange-bottom{left:7%;right:7%;bottom:20px}
  .orange-section:before{width:520px;height:520px;top:auto;bottom:-140px;right:-120px;transform:none}
 }
+
+/* ---------- ENHANCED TRANSITIONS & VERSION TOGGLE ---------- */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #e65c70, #b7dc42, #f09a4b);
+  z-index: 100;
+  pointer-events: none;
+}
+.version-toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(23, 60, 43, 0.07);
+  padding: 3px 4px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0 12px;
+}
+.version-toggle-wrap .active-ver {
+  background: #173c2b;
+  color: #f7f4ed;
+  padding: 5px 11px;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(23,60,43,.2);
+}
+.version-toggle-wrap .switch-ver-btn {
+  color: #2e4437;
+  padding: 5px 11px;
+  border-radius: 14px;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-decoration: none;
+}
+.version-toggle-wrap .switch-ver-btn:hover {
+  background: rgba(23, 60, 43, 0.12);
+  color: #e65c70;
+  transform: translateY(-1px);
+}
+.header-cta, .round-link, .closing-button {
+  transition: transform .28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow .28s ease, background-color .2s ease;
+  will-change: transform;
+}
+.header-cta:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(23,60,43,.15);
+}
+.round-link:hover {
+  transform: scale(1.06) rotate(6deg);
+  border-color: #e65c70;
+  box-shadow: 0 10px 20px rgba(230,92,112,.18);
+}
+.closing-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 24px rgba(23,60,43,.25);
+}
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes gentle-pulse {
+    0%, 100% { transform: scale(1) rotate(11deg); }
+    50% { transform: scale(1.06) rotate(14deg); }
+  }
+  .hero-sticker {
+    animation: gentle-pulse 6s ease-in-out infinite;
+  }
+  @keyframes float-sparkle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(15deg); }
+  }
+  .float-star.star-b {
+    animation: float-sparkle 4s ease-in-out infinite;
+  }
+  .float-star.star-c {
+    animation: float-sparkle 5s ease-in-out 1s infinite;
+  }
+}
+@media(max-width: 760px) {
+  .version-toggle-wrap {
+    order: 3;
+    margin: 0;
+    font-size: 8px;
+    padding: 2px 3px;
+  }
+  .version-toggle-wrap .active-ver, .version-toggle-wrap .switch-ver-btn {
+    padding: 4px 7px;
+  }
+}

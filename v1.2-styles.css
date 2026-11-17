@@ -1,0 +1,346 @@
+@import url("styles.css");
+
+/* ========================================================
+   VERSION 1.2 — CINEMATIC VIDEO HERO MAKEOVER
+   ======================================================== */
+
+/* Dark, modern luxury theme for the Hero */
+.hero-v12 {
+  min-height: 820px;
+  height: calc(100svh - 106px);
+  max-height: 980px;
+  position: relative;
+  overflow: hidden;
+  background: #0b140e;
+  color: #f7f4ed;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  padding: 40px 8.5% 60px;
+  perspective: 1200px;
+}
+
+/* Atmospheric ambient radial glows */
+.hero-v12::before {
+  content: "";
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(240, 150, 60, 0.28) 0%, rgba(183, 220, 66, 0.12) 40%, rgba(11, 20, 14, 0) 70%);
+  right: 5%;
+  top: 45%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-v12::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 92, 112, 0.22) 0%, rgba(11, 20, 14, 0) 65%);
+  left: -5%;
+  bottom: 0%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hero copy styling in v1.2 */
+.hero-v12 .hero-copy {
+  position: relative;
+  z-index: 4;
+}
+
+.hero-v12 .eyebrow {
+  color: #b8e34a;
+}
+.hero-v12 .eyebrow > span {
+  background: #f09a4b;
+}
+
+.hero-v12 h1 {
+  color: #f7f4ed;
+  font-size: clamp(62px, 7.8vw, 116px);
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+  margin: 24px 0 20px;
+}
+
+.hero-v12 h1 em {
+  color: #f0a44b;
+  font-style: normal;
+  text-shadow: 0 0 35px rgba(240, 164, 75, 0.35);
+}
+
+.hero-v12 .hero-sub {
+  color: #cad6ce;
+  font-size: 14.5px;
+  line-height: 1.8;
+  max-width: 44ch;
+}
+
+/* Hero CTA row with secondary teaser */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 36px;
+}
+
+.hero-v12 .round-link {
+  border-color: rgba(247, 244, 237, 0.4);
+  color: #f7f4ed;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+}
+.hero-v12 .round-link b {
+  color: #f0a44b;
+}
+
+.hero-explore-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f0a44b;
+  color: #0b140e;
+  padding: 14px 22px;
+  border-radius: 40px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.hero-explore-pill:hover {
+  background: #b8e34a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(240, 164, 75, 0.3);
+}
+
+/* Centerpiece: Cinematic Video Stage */
+.hero-video-stage {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.hero-video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 16/10;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(240, 164, 75, 0.28), 0 0 45px rgba(240, 150, 60, 0.18);
+  transform: rotate(-1.5deg);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
+  will-change: transform;
+}
+
+.hero-video-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 45px 95px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(240, 164, 75, 0.45), 0 0 65px rgba(240, 150, 60, 0.3);
+}
+
+.hero-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+}
+
+/* Glassmorphism Floating Badges */
+.glass-badge {
+  position: absolute;
+  z-index: 5;
+  background: rgba(11, 20, 14, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: #f7f4ed;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.badge-top-right {
+  top: -14px;
+  right: -12px;
+  background: rgba(240, 164, 75, 0.92);
+  color: #0b140e;
+  border-color: rgba(255, 255, 255, 0.4);
+  animation: badge-float-a 4s ease-in-out infinite;
+}
+
+.badge-bottom-left {
+  bottom: 22px;
+  left: 20px;
+  animation: badge-float-b 5s ease-in-out 0.5s infinite;
+}
+
+@keyframes badge-float-a {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes badge-float-b {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+/* WCAG 2.2.2 Pause/Play Accessible Control */
+.video-control-pill {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 6;
+  background: rgba(11, 20, 14, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #f7f4ed;
+  border-radius: 30px;
+  padding: 6px 12px;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.video-control-pill:hover {
+  background: #f7f4ed;
+  color: #0b140e;
+}
+.video-control-pill:focus-visible {
+  outline: 2px solid #b8e34a;
+  outline-offset: 2px;
+}
+
+/* Quick Flavour Dock Bar in Hero */
+.hero-flavour-dock {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 40px;
+}
+
+.hero-flavour-dock span.dock-label {
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: #8c9e92;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.dock-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  border-radius: 30px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dock-guava {
+  background: rgba(230, 92, 112, 0.18);
+  color: #f4d6d4;
+  border: 1px solid rgba(230, 92, 112, 0.4);
+}
+.dock-guava:hover {
+  background: #e65c70;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.dock-kiwi {
+  background: rgba(183, 220, 66, 0.18);
+  color: #dfeab9;
+  border: 1px solid rgba(183, 220, 66, 0.4);
+}
+.dock-kiwi:hover {
+  background: #b7dc42;
+  color: #0b140e;
+  transform: translateY(-2px);
+}
+
+.dock-orange {
+  background: rgba(240, 150, 60, 0.22);
+  color: #f8dcae;
+  border: 1px solid rgba(240, 150, 60, 0.5);
+}
+.dock-orange:hover {
+  background: #f09a4b;
+  color: #0b140e;
+  transform: translateY(-2px);
+}
+
+.dock-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dock-guava .dock-dot { background: #e65c70; }
+.dock-kiwi .dock-dot { background: #b7dc42; }
+.dock-orange .dock-dot { background: #f09a4b; }
+
+/* Responsive Media Queries for v1.2 Hero */
+@media (max-width: 960px) {
+  .hero-v12 {
+    height: auto;
+    min-height: 840px;
+    grid-template-columns: 1fr;
+    padding: 60px 7% 55px;
+    gap: 40px;
+  }
+  .hero-v12 h1 {
+    font-size: 64px;
+  }
+  .hero-video-frame {
+    max-width: 100%;
+    transform: none;
+  }
+  .badge-top-right {
+    top: -10px;
+    right: 5px;
+  }
+  .badge-bottom-left {
+    bottom: 12px;
+    left: 10px;
+  }
+  .hero-flavour-dock {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

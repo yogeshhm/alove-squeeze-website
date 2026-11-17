@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b140e" />
+  <meta name="description" content="ALOVE SQUEEZE v1.2 — The modern video hero makeover with guava, kiwi and orange." />
+  <title>ALOVE SQUEEZE — Version 1.2 · The Video Hero Makeover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="v1.2-styles.css" />
+</head>
+<body>
+  <div class="scroll-progress-bar" id="scrollProgress" aria-hidden="true"></div>
+  <div class="announcement"><span class="spark">✳</span> Version 1.2 Makeover: Experience the new video hero in motion <span class="spark">✳</span></div>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="ALOVE SQUEEZE home">ALOVE<span>SQUEEZE</span><i>®</i></a>
+    <nav aria-label="Main navigation">
+      <a href="#story">Our vibe</a>
+      <a href="#flavours">The flavours</a>
+      <a href="#guava">The guava</a>
+      <a href="#orange">The orange</a>
+    </nav>
+    <div class="version-toggle-wrap">
+      <a class="switch-ver-btn" href="index.html" title="Switch back to v1.1 Trio design">← v1.1 Trio</a>
+      <span class="active-ver">v1.2 Video Hero ✨</span>
+    </div>
+    <a class="header-cta" href="#flavours">Meet your squeeze <span>↗</span></a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main id="top">
+    <!-- VERSION 1.2 HERO MAKEOVER -->
+    <section class="hero-v12">
+      <div class="hero-grain"></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> FRESH IN MOTION. FEEL-GOOD ALWAYS.</p>
+        <h1>A fresh<br><em>perspective.</em></h1>
+        <p class="hero-sub">Guava, kiwi and orange — captured mid-motion with cold-pressed clarity and luminous flavor. The new standard for everyday fruit refreshment.</p>
+        <div class="hero-cta-group">
+          <a class="hero-explore-pill" href="#flavours">EXPLORE FLAVOURS <span>↓</span></a>
+          <a class="round-link" href="#story"><span>SCROLL TO<br>EXPERIENCE</span><b>↓</b></a>
+        </div>
+      </div>
+
+      <div class="hero-video-stage">
+        <div class="glass-badge badge-top-right"><span>✳</span> 100% PURE COLD PRESSED</div>
+        <div class="hero-video-frame">
+          <video class="hero-video-element" id="heroVideoElement" autoplay muted loop playsinline preload="auto" aria-label="ALOVE SQUEEZE orange juice bottle floating in mid-air">
+            <source src="assets/alove-orange-floating.mp4" type="video/mp4" />
+          </video>
+          <div class="glass-badge badge-bottom-left"><span>✦</span> FLOATING CITRUS MOTION</div>
+          <button class="video-control-pill" id="heroVideoToggle" aria-label="Pause background video">
+            <span class="toggle-icon">❚❚</span> <span class="toggle-text">PAUSE MOTION</span>
+          </button>
+        </div>
+
+        <div class="hero-flavour-dock">
+          <span class="dock-label">Quick Jump:</span>
+          <a class="dock-pill dock-guava" href="#f-guava"><span class="dock-dot"></span> GUAVA</a>
+          <a class="dock-pill dock-kiwi" href="#f-kiwi"><span class="dock-dot"></span> KIWI</a>
+          <a class="dock-pill dock-orange" href="#f-orange"><span class="dock-dot"></span> ORANGE</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro" id="story">
+      <div class="intro-top"><span>HEY, JUICY!</span><span>THE ALOVE WAY — 01</span></div>
+      <div class="intro-content">
+        <p class="eyebrow dark"><span></span> NOT YOUR EVERYDAY KIND OF JUICE</p>
+        <h2>Some days need<br>a <em>little squeeze.</em></h2>
+        <p class="intro-text">A bright splash of pure fruit energy for the in-between moments, the big plans and everything worth pausing for.</p>
+      </div>
+      <div class="scribble">good<br>mood club <span>↗</span></div>
+      <div class="intro-fruit">✳</div>
+    </section>
+
+    <div class="fpanels" id="flavours">
+      <article class="fpanel" style="--bg:#f4d6d4;--word:#ecbfbd;--accent:#d6485c" aria-labelledby="f-guava">
+        <div class="fword" aria-hidden="true">GUAVA</div>
+        <div class="ftext">
+          <p class="eyebrow dark"><span></span> FLAVOUR 1 OF 3</p>
+          <h3 id="f-guava">Guava</h3>
+          <p class="fline">Pink, tropical and the one that started it all.</p>
+          <ul><li>Fresh &amp; natural</li><li>Aloevera juice</li><li>Guava juice</li></ul>
+        </div>
+        <div class="fbottle"><div class="fhalo"></div><img src="assets/alove-guava-bottle.png" alt="ALOVE SQUEEZE guava juice bottle" /></div>
+      </article>
+
+      <article class="fpanel" style="--bg:#dfeab9;--word:#cddf98;--accent:#2a6e1a" aria-labelledby="f-kiwi">
+        <div class="fword" aria-hidden="true">KIWI</div>
+        <div class="ftext">
+          <p class="eyebrow dark"><span></span> FLAVOUR 2 OF 3</p>
+          <h3 id="f-kiwi">Kiwi</h3>
+          <p class="fline">Bright green, tart seeds and invigorating sunshine.</p>
+          <ul><li>Fresh &amp; natural kiwi juice</li><li>100% pure</li><li>No added sugar</li></ul>
+        </div>
+        <div class="fbottle"><div class="fhalo"></div><img src="assets/alove-kiwi-bottle.png" alt="ALOVE kiwi juice bottle" /></div>
+      </article>
+
+      <article class="fpanel" style="--bg:#f8dcae;--word:#f0c685;--accent:#c25a00" aria-labelledby="f-orange">
+        <div class="fword" aria-hidden="true">ORANGE</div>
+        <div class="ftext">
+          <p class="eyebrow dark"><span></span> FLAVOUR 3 OF 3</p>
+          <h3 id="f-orange">Orange</h3>
+          <p class="fline">Sunny citrus with an invigorating splash.</p>
+          <ul><li>Fresh &amp; natural orange juice</li><li>100% pure</li><li>No added sugar</li></ul>
+        </div>
+        <div class="fbottle"><div class="fhalo"></div><img src="assets/alove-orange-bottle.png" alt="ALOVE orange juice bottle" /></div>
+      </article>
+    </div>
+
+    <section class="guava-section" id="guava">
+      <div class="guava-heading">
+        <p class="eyebrow"><span></span> THE STAR OF THE SHOW</p>
+        <h2>All eyes on<br><em>guava.</em></h2>
+        <p>That unmistakable pink. That tropical personality.<br>There's a reason guava gets the spotlight.</p>
+      </div>
+      <div class="guava-art" aria-hidden="true">
+        <div class="fruit-ring ring-a"></div><div class="fruit-ring ring-b"></div>
+        <div class="fruit-word">GUAVA!</div>
+        <div class="fruit-caption">TROPICAL STATE OF MIND</div>
+        <span class="float-star star-a">✳</span><span class="float-star star-b">✳</span><span class="float-star star-c">✦</span>
+      </div>
+      <div class="guava-bottom"><span>BRIGHT FLAVOUR. BIG PERSONALITY.</span><span>02 — THE FLAVOUR</span></div>
+    </section>
+
+    <section class="orange-section" id="orange">
+      <div class="orange-heading">
+        <p class="eyebrow"><span></span> FLAVOUR 03 — THE SUNNY ONE</p>
+        <h2>All eyes on<br><em>orange.</em></h2>
+        <p>Sunny, bright and a little bit extra. Orange, caught mid-float and made for the good part of the day.</p>
+      </div>
+      <div class="orange-media">
+        <div class="orange-frame">
+          <video class="orange-video" autoplay muted loop playsinline preload="auto" aria-label="ALOVE SQUEEZE orange juice bottle floating in mid-air">
+            <source src="assets/alove-orange-floating.mp4" type="video/mp4" />
+          </video>
+          <span class="orange-tag"><i>✳</i> ORANGE · 100% PURE</span>
+        </div>
+      </div>
+      <div class="orange-bottom"><span>SUNNY SIDE UP.</span><span>03 — THE FLAVOUR</span></div>
+    </section>
+
+    <section class="closing">
+      <div class="closing-mark">✳</div>
+      <p class="eyebrow"><span></span> GO ON, HAVE A GOOD ONE</p>
+      <h2>Stay a little<br><em>juicier.</em></h2>
+      <p class="closing-copy">Guava, kiwi and orange — a brighter kind of everyday.</p>
+      <a class="closing-button" href="#top">TAKE ANOTHER LOOK <span>↗</span></a>
+      <div class="closing-bottom"><span>ALOVE SQUEEZE</span><span>GUAVA JUICE · MADE TO BRIGHTEN YOUR DAY</span><span>✳</span></div>
+    </section>
+  </main>
+  <footer><a class="wordmark" href="#top">ALOVE<span>SQUEEZE</span><i>®</i></a><span>© 2026 ALOVE SQUEEZE</span><span>GOOD DAYS, ONE SQUEEZE AT A TIME.</span></footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="v1.2-script.js"></script>
+</body>
+</html>
