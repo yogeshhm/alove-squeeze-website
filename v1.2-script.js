@@ -20,99 +20,159 @@ if (progressBar) {
   }, { passive: true });
 }
 
-// Accessible Video Play/Pause Controller (WCAG 2.2.2)
-const videoToggleBtn = document.getElementById("heroVideoToggle");
-const heroVideo = document.getElementById("heroVideoElement");
-if (videoToggleBtn && heroVideo) {
+// Background Video Play/Pause Controller (WCAG 2.2.2)
+const videoToggleBtn = document.getElementById("bgVideoToggle");
+const heroBgVideo = document.getElementById("heroBgVideo");
+if (videoToggleBtn && heroBgVideo) {
   videoToggleBtn.addEventListener("click", () => {
-    if (heroVideo.paused) {
-      heroVideo.play();
-      videoToggleBtn.innerHTML = '<span class="toggle-icon">❚❚</span> <span class="toggle-text">PAUSE MOTION</span>';
+    if (heroBgVideo.paused) {
+      heroBgVideo.play();
+      videoToggleBtn.innerHTML = '<span class="btn-icon">❚❚</span> <span class="btn-text">PAUSE BG</span>';
       videoToggleBtn.setAttribute("aria-label", "Pause background video");
     } else {
-      heroVideo.pause();
-      videoToggleBtn.innerHTML = '<span class="toggle-icon">▶</span> <span class="toggle-text">PLAY MOTION</span>';
+      heroBgVideo.pause();
+      videoToggleBtn.innerHTML = '<span class="btn-icon">▶</span> <span class="btn-text">PLAY BG</span>';
       videoToggleBtn.setAttribute("aria-label", "Play background video");
     }
   });
 }
 
-// GSAP Animations with Entrance and Exit Effects
+// GSAP Animations with 3D Scroll Scrollytelling
 if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   gsap.registerPlugin(ScrollTrigger);
 
-  // 1. Hero v1.2 Entrance Sequence
+  // 1. Initial Hero Load Entrance
   const heroTL = gsap.timeline();
   heroTL
     .from(".announcement", { y: -30, opacity: 0, duration: 0.6, ease: "power2.out" })
     .from(".site-header", { y: -20, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.3")
-    .from(".hero-v12 .hero-copy > *", {
+    .from(".hero-top-badge-row", { y: -20, opacity: 0, duration: 0.7, ease: "power3.out" }, "-=0.2")
+    .from(".hero-center-titles > *", {
       y: 35,
       opacity: 0,
       duration: 0.9,
       stagger: 0.12,
       ease: "power3.out"
-    }, "-=0.2")
-    .from(".hero-video-frame", {
-      scale: 0.88,
-      rotationY: 15,
+    }, "-=0.4")
+    .from(".bottle-3d-card", {
+      y: 120,
+      scale: 0.85,
       opacity: 0,
-      duration: 1.15,
+      duration: 1.1,
+      stagger: 0.14,
       ease: "power3.out"
     }, "-=0.6")
-    .from(".glass-badge", {
-      scale: 0,
-      opacity: 0,
-      duration: 0.65,
-      stagger: 0.15,
-      ease: "back.out(1.8)"
-    }, "-=0.4")
-    .from(".hero-flavour-dock", {
+    .from(".hero-bottom-bar", {
       y: 20,
       opacity: 0,
       duration: 0.7,
       ease: "power3.out"
-    }, "-=0.3");
+    }, "-=0.4");
 
-  // Hero v1.2 Video 3D Cursor Parallax
-  const heroContainer = document.querySelector(".hero-v12");
-  const videoFrame = document.querySelector(".hero-video-frame");
-  if (heroContainer && videoFrame) {
-    const rx = gsap.quickTo(videoFrame, "rotationX", { duration: 0.8, ease: "power3" });
-    const ry = gsap.quickTo(videoFrame, "rotationY", { duration: 0.8, ease: "power3" });
+  // 2. 3D Scroll Scrollytelling & 3D Camera Scrub
+  const pinWrap = document.getElementById("heroPinWrap");
+  const stage = document.getElementById("hero3DStage");
+  const bgVideo = document.getElementById("heroBgVideo");
+  const content = document.querySelector(".hero-3d-content");
+  const titles = document.querySelector(".hero-center-titles");
+  const kiwiCard = document.querySelector(".card-kiwi");
+  const guavaCard = document.querySelector(".card-guava");
+  const orangeCard = document.querySelector(".card-orange");
 
-    heroContainer.addEventListener("pointermove", (e) => {
-      const rect = heroContainer.getBoundingClientRect();
+  if (pinWrap && stage) {
+    // Only pin on screens > 900px to allow native responsive flow on mobile
+    if (window.innerWidth > 900) {
+      const tl3D = gsap.timeline({
+        scrollTrigger: {
+          trigger: pinWrap,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1.2,
+          pin: stage,
+          anticipatePin: 1
+        }
+      });
+
+      // Background video zoom in 3D
+      tl3D.to(bgVideo, {
+        scale: 1.28,
+        filter: "contrast(1.15) saturate(1.25) brightness(0.6)",
+        ease: "none"
+      }, 0);
+
+      // Center titles float forward in 3D and dissolve
+      tl3D.to(titles, {
+        y: -100,
+        scale: 1.15,
+        opacity: 0,
+        ease: "power2.in"
+      }, 0);
+
+      // 3D Bottles Fan-Out & Fly Through Camera
+      tl3D.to(kiwiCard, {
+        x: -360,
+        y: 80,
+        rotationY: -45,
+        rotationZ: -18,
+        opacity: 0.1,
+        ease: "power1.inOut"
+      }, 0);
+
+      tl3D.to(orangeCard, {
+        x: 360,
+        y: 80,
+        rotationY: 45,
+        rotationZ: 18,
+        opacity: 0.1,
+        ease: "power1.inOut"
+      }, 0);
+
+      tl3D.to(guavaCard, {
+        scale: 1.35,
+        y: 90,
+        ease: "power1.inOut"
+      }, 0);
+    }
+
+    // Interactive 3D Cursor Gyroscope / Pointer Tracking
+    stage.addEventListener("pointermove", (e) => {
+      const rect = stage.getBoundingClientRect();
       const px = (e.clientX - rect.left) / rect.width - 0.5;
       const py = (e.clientY - rect.top) / rect.height - 0.5;
-      ry(px * 18);
-      rx(-py * 12);
+
+      gsap.to(content, {
+        rotationY: px * 18,
+        rotationX: -py * 12,
+        transformPerspective: 1200,
+        duration: 0.7,
+        ease: "power3.out"
+      });
+
+      gsap.to(bgVideo, {
+        x: -px * 25,
+        y: -py * 18,
+        duration: 0.9,
+        ease: "power3.out"
+      });
     });
 
-    heroContainer.addEventListener("pointerleave", () => {
-      ry(-1.5);
-      rx(0);
-    });
-
-    // Hero Scroll Offload Morph
-    const heroScroll = { trigger: heroContainer, start: "top top", end: "bottom top", scrub: 1 };
-    gsap.to(".hero-video-frame", {
-      y: 60,
-      scale: 0.94,
-      rotationX: 8,
-      opacity: 0.75,
-      scrollTrigger: heroScroll,
-      ease: "none"
-    });
-    gsap.to(".hero-v12 .hero-copy", {
-      y: -50,
-      opacity: 0.3,
-      scrollTrigger: heroScroll,
-      ease: "none"
+    stage.addEventListener("pointerleave", () => {
+      gsap.to(content, {
+        rotationY: 0,
+        rotationX: 0,
+        duration: 1.1,
+        ease: "power3.out"
+      });
+      gsap.to(bgVideo, {
+        x: 0,
+        y: 0,
+        duration: 1.1,
+        ease: "power3.out"
+      });
     });
   }
 
-  // 2. Intro Section Scroll Entrance & Exit
+  // 3. Intro Section Scroll Entrance & Exit
   gsap.from(".intro-content", {
     y: 65,
     opacity: 0,
@@ -142,7 +202,7 @@ if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-
     scrollTrigger: { trigger: ".intro", start: "top bottom", end: "bottom top", scrub: 1 }
   });
 
-  // 3. Stacked Flavour Cards
+  // 4. Stacked Flavour Cards
   document.querySelectorAll(".fpanel").forEach(p => {
     const img = p.querySelector(".fbottle img");
     const word = p.querySelector(".fword");
@@ -172,7 +232,7 @@ if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-
     }
   });
 
-  // 4. Guava Section
+  // 5. Guava Section
   gsap.from(".fruit-word", {
     scale: 0.5,
     rotate: -28,
@@ -193,7 +253,7 @@ if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-
     scrollTrigger: { trigger: ".guava-section", start: "top bottom", end: "bottom top", scrub: 1 }
   });
 
-  // 5. Orange Video Section
+  // 6. Orange Video Section
   gsap.from(".orange-heading", {
     y: 55,
     opacity: 0,
@@ -210,7 +270,7 @@ if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-
     scrollTrigger: { trigger: ".orange-section", start: "top 68%" }
   });
 
-  // 6. Closing Section
+  // 7. Closing Section
   gsap.from(".closing h2", {
     y: 55,
     opacity: 0,
